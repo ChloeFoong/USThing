@@ -1,0 +1,38 @@
+swagger: "2.0"
+info:
+  title: My API
+  description: My API documentation
+  version: 1.0.0
+host: localhost:8000
+basePath: /
+schemes:
+  - http
+
+paths:
+  /subject/{subject}:
+    get:
+      summary: Get a subject by code
+      description: Returns all course of subject
+      parameters:
+        - in: path
+          name: subject
+          description: subject
+          required: true
+          type: text
+          format: 
+      responses:
+        200:
+          description: all courses
+          schema:
+            $ref: '#/definitions/subjects'
+
+definitions:
+  subject:
+    type: object
+    properties:
+      subject:
+        type: text
+        format: 
+
+    required:
+      - subject
